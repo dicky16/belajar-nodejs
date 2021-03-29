@@ -5,6 +5,9 @@ const express = require('express');
 //use hbs view engine
 const hbs = require('hbs');
 const app = express();
+//socket.io
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
  
 //set dynamic views file
 app.set('views',path.join(__dirname,'views'));
@@ -23,6 +26,11 @@ app.get('/',(req, res) => {
 //route untuk halaman about
 app.get('/about',(req, res) => {
   res.send('This is about page');
+});
+
+app.get('/tes',(req, res) => {
+  //render file index.hbs
+  res.render('tes-io');
 });
 //end route
 

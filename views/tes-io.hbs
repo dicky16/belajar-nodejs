@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+{{!-- <script src="/node_modules/socket.io/socket.io.js"></script> --}}
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js" integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2>Hasil</h2>
+<div id="text">
+<p></p>
+</div>
+<script>
+var text = document.getElementById('text');
+var socket = io.connect('http://localhost:8000');
+socket.on('data', function(message) {
+text.innerHTML = message.data;
+});
+</script>
+</body>
+</html>
